@@ -11,7 +11,7 @@ this api provides a single, efficient endpoint to retrieve github user statistic
 - rate limits: 5000 requests/hour (github api quota)
 - cache policy: 24-hour in-memory lru cache per username
 
-## Core Architecture
+## Core architecture
 
 The codebase follows a minimal, service-oriented structure:
 
@@ -24,14 +24,14 @@ The codebase follows a minimal, service-oriented structure:
 - Single dynamic route handler at `app/api/commits/[username]/route.ts`
 - Type definitions centralized in `types/index.ts`
 
-## API Contract
+## API contract
 
-### Request
+### request
 ```
 GET /api/commits/{username}
 ```
 
-### Response
+### response
 ```json
 {
   "commits": 1308,
@@ -44,7 +44,7 @@ GET /api/commits/{username}
 }
 ```
 
-### Error Handling
+### error handling
 ```json
 {
   "error": "User not found"
@@ -61,7 +61,7 @@ the api uses a multi-stage query pattern to efficiently gather user stats:
 4. get repository stats in a single parallel query
 5. aggregate results, update cache, return response
 
-## Integration Examples
+## integration examples
 
 ### HTTP/Fetch
 ```javascript
@@ -83,4 +83,4 @@ mit license
 
 ---
 
-created by ilakiancs# RepoStat
+created by ilakiancs
